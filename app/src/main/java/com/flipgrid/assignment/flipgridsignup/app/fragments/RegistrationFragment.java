@@ -1,5 +1,6 @@
 package com.flipgrid.assignment.flipgridsignup.app.fragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,6 +27,7 @@ public class RegistrationFragment extends Fragment {
     private OnSubmitButtonClickListener onSubmitButtonClickListener;
     EditText firstName, email, password, website;
     Button submitButton;
+    ProgressBar progressBar;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,11 +56,24 @@ public class RegistrationFragment extends Fragment {
         this.onSubmitButtonClickListener = listener;
     }
 
+    public void showProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    public void hideProgressBar() {
+        progressBar.setVisibility(View.GONE);
+    }
+
     private void initializeView(View view) {
         firstName = view.findViewById(R.id.first_name);
         email = view.findViewById(R.id.email);
         password = view.findViewById(R.id.password);
         website = view.findViewById(R.id.website);
+        progressBar = view.findViewById(R.id.progress_loader);
+
+        progressBar.setMax(100);
+        progressBar.setProgress(0);
+        progressBar.setVisibility(View.INVISIBLE);
 
         email.addTextChangedListener(new TextWatcher() {
             @Override

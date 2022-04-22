@@ -81,11 +81,15 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
         registrationArguments.putString(DataKey.EMAIL.name(), email);
         registrationArguments.putString(DataKey.WEBSITE.name(), website);
 
+        RegistrationFragment registrationFragment = (RegistrationFragment) getSupportFragmentManager().findFragmentByTag(TAG_REGISTRATION_FRAGMENT);
+        registrationFragment.showProgressBar();
+
         AppContext.getInstance(this).getPreferenceWrapper().writeBoolean(DataKey.IS_REGISTERED.name(), true);
 
         registrationRepository.sendLoginRequest(new Object(), new IResponseCallback() {
             @Override
             public void onSuccess(Object request, Object response) {
+                registrationFragment.hideProgressBar();
                 showSigninView(registrationArguments, true);
             }
 
