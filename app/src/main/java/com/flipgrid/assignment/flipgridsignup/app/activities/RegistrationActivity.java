@@ -17,7 +17,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.flipgrid.assignment.flipgridsignup.BuildConfig;
 import com.flipgrid.assignment.flipgridsignup.R;
+import com.flipgrid.assignment.flipgridsignup.app.AppContext;
+import com.flipgrid.assignment.flipgridsignup.app.DataKey;
+import com.flipgrid.assignment.flipgridsignup.app.PreferenceWrapper;
 import com.flipgrid.assignment.flipgridsignup.app.fragments.RegistrationFragment;
 import com.flipgrid.assignment.flipgridsignup.app.fragments.SigninFragment;
 
@@ -26,22 +30,19 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
     private static final String TAG_REGISTRATION_FRAGMENT = "registrationFragment";
     private static final String TAG_SIGNIN_FRAGMENT = "signinFragment";
 
-    EditText firstName, email, password, website;
-    Button submit;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        SharedPreferences prefs = this.getSharedPreferences("0", Context.MODE_PRIVATE);
-        if (!prefs.getBoolean("isRegistered", false)) {
+        PreferenceWrapper preferenceWrapper = AppContext.getInstance(this).getPreferenceWrapper();
+        if (BuildConfig.DEVELOPER_MODE || !preferenceWrapper.readBoolean(DataKey.IS_REGISTERED.name(), false)) {
             showRegistrationView();
         } else {
             Bundle savedData = new Bundle();
-            savedData.putString("firstName", prefs.getString("firstName", ""));
-            savedData.putString("email", prefs.getString("email", ""));
-            savedData.putString("website", prefs.getString("website", ""));
+            savedData.putString(DataKey.FIRST_NAME.name(), preferenceWrapper.readString(DataKey.FIRST_NAME.name()));
+            savedData.putString(DataKey.EMAIL.name(), preferenceWrapper.readString(DataKey.EMAIL.name()));
+            savedData.putString(DataKey.WEBSITE.name(), preferenceWrapper.readString(DataKey.WEBSITE.name()));
             showSigninView(savedData, false);
         }
     }
@@ -67,12 +68,11 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
     @Override
     public void onSubmitButtonClicked(final String firstName, final String email, final String website) {
         Bundle registrationArguments = new Bundle();
-        registrationArguments.putString("firstName", firstName);
-        registrationArguments.putString("email", email);
-        registrationArguments.putString("website", website);
+        registrationArguments.putString(DataKey.FIRST_NAME.name(), firstName);
+        registrationArguments.putString(DataKey.EMAIL.name(), email);
+        registrationArguments.putString(DataKey.WEBSITE.name(), website);
 
-        SharedPreferences prefs = this.getSharedPreferences("0", Context.MODE_PRIVATE);
-        prefs.edit().putBoolean("isRegistered", true).apply();
+        AppContext.getInstance(this).getPreferenceWrapper().writeBoolean(DataKey.IS_REGISTERED.name(), true);
 
         showSigninView(registrationArguments, true);
     }

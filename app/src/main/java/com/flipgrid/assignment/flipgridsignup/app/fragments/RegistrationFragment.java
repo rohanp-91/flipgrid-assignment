@@ -16,6 +16,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.flipgrid.assignment.flipgridsignup.R;
+import com.flipgrid.assignment.flipgridsignup.app.AppContext;
+import com.flipgrid.assignment.flipgridsignup.app.DataKey;
+import com.flipgrid.assignment.flipgridsignup.app.PreferenceWrapper;
 
 public class RegistrationFragment extends Fragment {
 
@@ -28,7 +31,7 @@ public class RegistrationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_register, container, false);
         initializeView(view);
 
-        if (this.getActivity().getSharedPreferences("0", Context.MODE_PRIVATE).getBoolean("hasSavedData", false)) {
+        if (AppContext.getInstance(getActivity()).getPreferenceWrapper().readBoolean(DataKey.HAS_SAVED_DATA.name(), false)) {
             restoreSavedData();
         }
 
@@ -39,12 +42,11 @@ public class RegistrationFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
 
-        SharedPreferences prefs = this.getActivity().getSharedPreferences("0", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("hasSavedData", true).apply();
-        editor.putString("firstName", getFirstName()).apply();
-        editor.putString("email", getEmail()).apply();
-        editor.putString("website", getWebsite()).apply();
+        PreferenceWrapper preferenceWrapper = AppContext.getInstance(getActivity()).getPreferenceWrapper();
+        preferenceWrapper.writeBoolean(DataKey.HAS_SAVED_DATA.name(), true);
+        preferenceWrapper.writeString(DataKey.FIRST_NAME.name(), getFirstName());
+        preferenceWrapper.writeString(DataKey.EMAIL.name(), getEmail());
+        preferenceWrapper.writeString(DataKey.WEBSITE.name(), getWebsite());
     }
 
     public void setOnSubmitButtonClickListener(OnSubmitButtonClickListener listener) {
@@ -106,10 +108,10 @@ public class RegistrationFragment extends Fragment {
     }
 
     private void restoreSavedData() {
-        SharedPreferences prefs = this.getActivity().getSharedPreferences("0", Context.MODE_PRIVATE);
-        firstName.setText(prefs.getString("firstName", null));
-        email.setText(prefs.getString("email", null));
-        website.setText(prefs.getString("website", null));
+        PreferenceWrapper preferenceWrapper = AppContext.getInstance(getActivity()).getPreferenceWrapper();
+        firstName.setText(preferenceWrapper.readString(DataKey.FIRST_NAME.name()));
+        email.setText(preferenceWrapper.readString(DataKey.EMAIL.name()));
+        website.setText(preferenceWrapper.readString(DataKey.WEBSITE.name()));
     }
 
     private void checkRequiredFields() {

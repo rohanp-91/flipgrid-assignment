@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.flipgrid.assignment.flipgridsignup.R;
+import com.flipgrid.assignment.flipgridsignup.app.DataKey;
 
 public class SigninFragment extends Fragment {
 
@@ -34,10 +35,26 @@ public class SigninFragment extends Fragment {
         displayFirstName = view.findViewById(R.id.display_firstname);
         displayEmail = view.findViewById(R.id.display_email);
 
-        greetings.setText("Hello");
+        String greetingsMessage = !getFirstName().isEmpty() ?
+                String.format("Hello, %s!", getFirstName()) :
+                String.format("Hello!");
+
+        greetings.setText(greetingsMessage);
         successMessage.setText("Your super-awesome portfolio has been successfully submitted! The details below will be public within your community!");
-        displayWebsite.setText("rohanpathak.microsoft.com");
-        displayFirstName.setText("Rohan");
-        displayEmail.setText("ropathak@microsoft.com");
+        displayWebsite.setText(getWebsite());
+        displayFirstName.setText(getFirstName());
+        displayEmail.setText(getEmail());
+    }
+
+    private String getFirstName() {
+        return getArguments().getString(DataKey.FIRST_NAME.name());
+    }
+
+    private String getEmail() {
+        return getArguments().getString(DataKey.EMAIL.name());
+    }
+
+    private String getWebsite() {
+        return getArguments().getString(DataKey.WEBSITE.name());
     }
 }
