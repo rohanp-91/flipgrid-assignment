@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    tools:context=".app.activities.RegistrationActivity"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/greetings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lftetica_bold"
+            android:textColor="#545454"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/success_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/success_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/araboto_medium"
+            android:paddingTop="5dp"
+            android:textFontWeight="500"
+            app:layout_constraintStart_toStartOf="@+id/greetings"
+            app:layout_constraintTop_toBottomOf="@+id/greetings"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/display_website"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/success_message"
+            android:gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/display_firstname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/display_website"
+            android:gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/display_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/display_firstname"
+            android:gravity="center_horizontal"/>
+
+
+        <android.widget.Button
+            android:id="@+id/signin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/greetings"
+            app:layout_constraintStart_toStartOf="@id/greetings"
+            app:layout_constraintTop_toBottomOf="@id/success_message"
+            app:layout_constraintVertical_bias="1"
+            style="@style/Theme.FlipgridSignUp.SignUpButton"
+            android:text="Sign In"
+            android:textColor="#ffffff"
+            android:textAllCaps="false"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

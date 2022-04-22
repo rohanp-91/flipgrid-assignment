@@ -20,4 +20,7 @@
     <style name="TextInputLayoutOutlinedBoxStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="hintTextAppearance">@style/TextInputLayoutHintStyle</item>
     </style>
+    <style name="Theme.FlipgridSignUp.SignUpButton" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/button_selector</item>
+    </style>
 </resources>
