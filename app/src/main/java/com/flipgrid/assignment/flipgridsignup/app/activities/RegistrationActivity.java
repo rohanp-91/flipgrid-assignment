@@ -11,6 +11,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 
 import androidx.annotation.NonNull;
@@ -21,19 +22,27 @@ import com.flipgrid.assignment.flipgridsignup.BuildConfig;
 import com.flipgrid.assignment.flipgridsignup.R;
 import com.flipgrid.assignment.flipgridsignup.app.AppContext;
 import com.flipgrid.assignment.flipgridsignup.app.DataKey;
+import com.flipgrid.assignment.flipgridsignup.app.IResponseCallback;
 import com.flipgrid.assignment.flipgridsignup.app.PreferenceWrapper;
+import com.flipgrid.assignment.flipgridsignup.app.RegistrationRepository;
 import com.flipgrid.assignment.flipgridsignup.app.fragments.RegistrationFragment;
 import com.flipgrid.assignment.flipgridsignup.app.fragments.SigninFragment;
+
+import java.util.HashMap;
 
 public class RegistrationActivity extends AppCompatActivity implements RegistrationFragment.OnSubmitButtonClickListener {
 
     private static final String TAG_REGISTRATION_FRAGMENT = "registrationFragment";
     private static final String TAG_SIGNIN_FRAGMENT = "signinFragment";
 
+    private RegistrationRepository registrationRepository;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+
+        registrationRepository = new RegistrationRepository();
 
         PreferenceWrapper preferenceWrapper = AppContext.getInstance(this).getPreferenceWrapper();
         if (BuildConfig.DEVELOPER_MODE || !preferenceWrapper.readBoolean(DataKey.IS_REGISTERED.name(), false)) {
@@ -74,7 +83,19 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
 
         AppContext.getInstance(this).getPreferenceWrapper().writeBoolean(DataKey.IS_REGISTERED.name(), true);
 
-        showSigninView(registrationArguments, true);
+        registrationRepository.sendLoginRequest(new Object(), new IResponseCallback() {
+            @Override
+            public void onSuccess(Object request, Object response) {
+                showSigninView(registrationArguments, true);
+            }
+
+            @Override
+            public void onFailure(Object request, Object response) {
+                AppContext.getInstance(getApplicationContext()).getLogger().LogError(new HashMap<String, String>() {{
+                    put("Error", response.toString());
+                }});
+            }
+        });
     }
 
     private void showSigninView(Bundle arguments, boolean fromRegistrationView) {
