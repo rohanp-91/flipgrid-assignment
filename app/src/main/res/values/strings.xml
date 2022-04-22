@@ -9,4 +9,7 @@
     <string name="password">Password</string>
     <string name="website">Website</string>
     <string name="submit">Submit</string>
+    <string name="success_message">Your super-awesome portfolio has been successfully submitted! The details below will be public within your community!</string>
+    <string name="greetings">Hello!</string>
+    <string name="greetings_with_name">Hello, %s!</string>
 </resources>

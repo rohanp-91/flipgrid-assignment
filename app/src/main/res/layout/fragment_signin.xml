@@ -56,7 +56,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/success_message"
                 android:gravity="center_horizontal"
-                android:fontFamily="@font/araboto_medium" />
+                android:fontFamily="@font/araboto_medium"
+                android:linksClickable="true" />
 
             <TextView
                 android:id="@+id/display_firstname"

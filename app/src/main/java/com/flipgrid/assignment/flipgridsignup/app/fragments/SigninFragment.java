@@ -1,6 +1,8 @@
 package com.flipgrid.assignment.flipgridsignup.app.fragments;
 
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,26 +37,43 @@ public class SigninFragment extends Fragment {
         displayFirstName = view.findViewById(R.id.display_firstname);
         displayEmail = view.findViewById(R.id.display_email);
 
-        String greetingsMessage = !getFirstName().isEmpty() ?
-                String.format("Hello, %s!", getFirstName()) :
-                String.format("Hello!");
+        String greetingsMessage = getGreetingsMessage();
 
         greetings.setText(greetingsMessage);
-        successMessage.setText("Your super-awesome portfolio has been successfully submitted! The details below will be public within your community!");
-        displayWebsite.setText(getWebsite());
-        displayFirstName.setText(getFirstName());
+        successMessage.setText(R.string.success_message);
+
+        if (!getWebsite().isEmpty()) {
+            String website = String.format("<a href=\"https://%s\">%s</a>", getWebsite(), getWebsite());
+            displayWebsite.setText(Html.fromHtml(website));
+            displayWebsite.setMovementMethod(LinkMovementMethod.getInstance());
+        } else {
+            displayWebsite.setVisibility(View.GONE);
+        }
+
+        if (!getFirstName().isEmpty()) {
+            displayFirstName.setText(getFirstName());
+        } else {
+            displayFirstName.setVisibility(View.GONE);
+        }
+
         displayEmail.setText(getEmail());
     }
 
+    private String getGreetingsMessage() {
+        return !getFirstName().isEmpty() ?
+                String.format(getContext().getString(R.string.greetings_with_name), getFirstName()) :
+                getContext().getString(R.string.greetings);
+    }
+
     private String getFirstName() {
-        return getArguments().getString(DataKey.FIRST_NAME.name());
+        return getArguments() != null ? getArguments().getString(DataKey.FIRST_NAME.name()) : "";
     }
 
     private String getEmail() {
-        return getArguments().getString(DataKey.EMAIL.name());
+        return getArguments() != null ? getArguments().getString(DataKey.EMAIL.name()) : "";
     }
 
     private String getWebsite() {
-        return getArguments().getString(DataKey.WEBSITE.name());
+        return getArguments() != null ? getArguments().getString(DataKey.WEBSITE.name()) : "";
     }
 }
