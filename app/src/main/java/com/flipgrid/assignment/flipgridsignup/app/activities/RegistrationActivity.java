@@ -97,7 +97,12 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
         FragmentManager fragmentManager = getSupportFragmentManager();
         if (fragmentManager != null) {
             fragmentManager.beginTransaction()
-                    .replace(fromRegistrationView ?
+                    .setCustomAnimations(
+                            R.anim.slide_in,
+                            R.anim.fade_out,
+                            R.anim.fade_in,
+                            R.anim.slide_out
+                    ).replace(fromRegistrationView ?
                             fragmentManager.findFragmentByTag(TAG_REGISTRATION_FRAGMENT).getId() :
                             R.id.activity_registration_content, signinFragment, TAG_SIGNIN_FRAGMENT)
                     .commit();
