@@ -1,4 +1,4 @@
-package com.flipgrid.assignment.flipgridsignup.app;
+package com.flipgrid.assignment.flipgridsignup.app.network;
 
 public abstract class BaseRequestService implements IRequestService {
 

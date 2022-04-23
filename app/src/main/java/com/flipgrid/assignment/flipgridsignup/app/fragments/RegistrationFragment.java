@@ -1,8 +1,5 @@
 package com.flipgrid.assignment.flipgridsignup.app.fragments;
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,9 +15,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.flipgrid.assignment.flipgridsignup.R;
-import com.flipgrid.assignment.flipgridsignup.app.AppContext;
-import com.flipgrid.assignment.flipgridsignup.app.DataKey;
-import com.flipgrid.assignment.flipgridsignup.app.PreferenceWrapper;
+import com.flipgrid.assignment.flipgridsignup.app.global.AppContext;
+import com.flipgrid.assignment.flipgridsignup.app.global.DataKey;
+import com.flipgrid.assignment.flipgridsignup.app.global.PreferenceWrapper;
 
 public class RegistrationFragment extends Fragment {
 

@@ -1,19 +1,14 @@
-package com.flipgrid.assignment.flipgridsignup.app;
+package com.flipgrid.assignment.flipgridsignup.app.global;
 
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.LifecycleObserver;
-import androidx.lifecycle.OnLifecycleEvent;
-import androidx.lifecycle.ProcessLifecycleOwner;
 
-import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.UUID;
 

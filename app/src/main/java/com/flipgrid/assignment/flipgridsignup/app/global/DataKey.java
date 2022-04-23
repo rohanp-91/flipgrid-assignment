@@ -1,4 +1,4 @@
-package com.flipgrid.assignment.flipgridsignup.app;
+package com.flipgrid.assignment.flipgridsignup.app.global;
 
 public enum DataKey {
     DEVICE_NAME,

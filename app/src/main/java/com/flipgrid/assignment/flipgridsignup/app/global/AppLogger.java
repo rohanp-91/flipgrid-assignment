@@ -1,13 +1,11 @@
-package com.flipgrid.assignment.flipgridsignup.app;
+package com.flipgrid.assignment.flipgridsignup.app.global;
 
 import android.content.Context;
 import android.util.Log;
 
 import org.json.JSONObject;
 
-import java.sql.Timestamp;
 import java.util.HashMap;
-import java.util.Map;
 
 public class AppLogger implements IAppLogger {
 

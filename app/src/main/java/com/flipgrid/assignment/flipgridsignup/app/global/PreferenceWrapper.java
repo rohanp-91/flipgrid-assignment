@@ -1,4 +1,4 @@
-package com.flipgrid.assignment.flipgridsignup.app;
+package com.flipgrid.assignment.flipgridsignup.app.global;
 
 import android.content.Context;
 import android.content.SharedPreferences;

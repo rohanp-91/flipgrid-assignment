@@ -1,30 +1,18 @@
 package com.flipgrid.assignment.flipgridsignup.app.activities;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.flipgrid.assignment.flipgridsignup.BuildConfig;
 import com.flipgrid.assignment.flipgridsignup.R;
-import com.flipgrid.assignment.flipgridsignup.app.AppContext;
-import com.flipgrid.assignment.flipgridsignup.app.DataKey;
-import com.flipgrid.assignment.flipgridsignup.app.IResponseCallback;
-import com.flipgrid.assignment.flipgridsignup.app.PreferenceWrapper;
-import com.flipgrid.assignment.flipgridsignup.app.RegistrationRepository;
+import com.flipgrid.assignment.flipgridsignup.app.global.AppContext;
+import com.flipgrid.assignment.flipgridsignup.app.global.DataKey;
+import com.flipgrid.assignment.flipgridsignup.app.network.IResponseCallback;
+import com.flipgrid.assignment.flipgridsignup.app.global.PreferenceWrapper;
+import com.flipgrid.assignment.flipgridsignup.app.network.RegistrationRepository;
 import com.flipgrid.assignment.flipgridsignup.app.fragments.RegistrationFragment;
 import com.flipgrid.assignment.flipgridsignup.app.fragments.SigninFragment;
 

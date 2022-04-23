@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.flipgrid.assignment.flipgridsignup.R;
-import com.flipgrid.assignment.flipgridsignup.app.DataKey;
+import com.flipgrid.assignment.flipgridsignup.app.global.DataKey;
 
 public class SigninFragment extends Fragment {
 
