@@ -3,17 +3,23 @@ package com.flipgrid.assignment.flipgridsignup.app;
 import android.os.Handler;
 import android.os.Looper;
 
-public class RegisterRequestService extends BaseRequestService{
+public class RegisterRequestService extends BaseRequestService {
+
+    private Handler mHandler;
+
+    public RegisterRequestService() {
+        super();
+        mHandler = new Handler(Looper.getMainLooper());
+    }
 
     @Override
     public void getAsync(Object request, IResponseCallback responseCallback) {
-        Handler mainHandler = new Handler(Looper.getMainLooper());
         Thread getAction = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     Thread.sleep(2000);
-                    mainHandler.post(new Runnable() {
+                    mHandler.post(new Runnable() {
                         @Override
                         public void run() {
                             responseCallback.onSuccess(request, new Object());
@@ -21,6 +27,7 @@ public class RegisterRequestService extends BaseRequestService{
                     });
                 } catch (Exception e) {
                     // do nothing for now
+                    e.printStackTrace();
                 }
             }
         });
@@ -29,13 +36,12 @@ public class RegisterRequestService extends BaseRequestService{
 
     @Override
     public void postAsync(Object request, IResponseCallback responseCallback) {
-        Handler mainHandler = new Handler(Looper.getMainLooper());
         Thread postAction = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     Thread.sleep(2000);
-                    mainHandler.post(new Runnable() {
+                    mHandler.post(new Runnable() {
                         @Override
                         public void run() {
                             responseCallback.onSuccess(request, new Object());
@@ -48,5 +54,9 @@ public class RegisterRequestService extends BaseRequestService{
             }
         });
         postAction.start();
+    }
+
+    public Handler getHandler() {
+        return mHandler;
     }
 }
