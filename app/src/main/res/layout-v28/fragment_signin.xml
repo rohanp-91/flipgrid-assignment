@@ -58,7 +58,7 @@
                 app:layout_constraintTop_toBottomOf="@id/success_message"
                 android:gravity="center_horizontal"
                 android:fontFamily="@font/araboto_medium"
-                android:textFontWeight="900"/>
+                android:textFontWeight="900" />
 
             <TextView
                 android:id="@+id/display_firstname"

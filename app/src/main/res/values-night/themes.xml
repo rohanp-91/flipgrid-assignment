@@ -2,15 +2,25 @@
     <!-- Base application theme. -->
     <style name="Theme.FlipgridSignUp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/grey</item>
-        <item name="colorPrimaryVariant">@color/grey</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/sky_blue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/blue</item>
-        <item name="colorSecondaryVariant">@color/blue</item>
+        <item name="colorSecondaryVariant">@color/teal</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+    <style name="TextInputLayoutHintStyle" parent="TextAppearance.Design.Hint">
+        <item name="fontFamily">@font/araboto_medium</item>
+        <item name="android:fontFamily">@font/araboto_medium</item>
+    </style>
+    <style name="TextInputLayoutOutlinedBoxStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextAppearance">@style/TextInputLayoutHintStyle</item>
+    </style>
+    <style name="Theme.FlipgridSignUp.SignUpButton" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/button_selector</item>
     </style>
 </resources>

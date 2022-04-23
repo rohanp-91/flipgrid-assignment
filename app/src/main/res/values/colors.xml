@@ -5,4 +5,9 @@
     <color name="grey">#808080</color>
     <color name="green">#21cf24</color>
     <color name="blue">#0d7bd5</color>
+    <color name="sky_blue">#87ceeb</color>
+    <color name="teal">#008080</color>
+    <color name="button_gradient_start">#ff500a</color>
+    <color name="button_gradient_center">#ff3c28</color>
+    <color name="button_gradient_end">#ff2052</color>
 </resources>
