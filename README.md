@@ -14,10 +14,12 @@ The app uses Android material design for the UI elements. Below is a brief descr
 2. Network - This contains a very basic representation of how the application's network infrastructure might look like.
     * IRequestService - An interface for the network service that contains signature for get and post methods.
     * IResponseCallback - An onterface for the network response handler that contains signature for onSuccess and onFailure.
-    * BaseRequestService - A root implemenetation of the request service class. Can be extended by each component of the class according to their needs.
+    * BaseRequestService - A root implemenetation of the request service class. Can be extended by each component of the application according to their needs.
     * RegisterRequestService - This is an extension of the BaseRequestService class to align with the registration network requests.
     * RegistrationRepository - A class that handles the registration requests making use of the RegisterRequestService.
 
 3. Activities - This contains the class definitions of the various activities of the application.
 
 4. Fragments - This contains the fragment definitions of the application that is used by the activities.
+
+> A buildConfigField 'DEVELOPER_MODE' was added to enable some features that is only present in debug builds - this can be used to pilot features or test features out in debug mode without having to enable it in production.
