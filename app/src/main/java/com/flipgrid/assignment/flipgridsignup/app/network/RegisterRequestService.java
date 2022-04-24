@@ -3,6 +3,8 @@ package com.flipgrid.assignment.flipgridsignup.app.network;
 import android.os.Handler;
 import android.os.Looper;
 
+import org.json.JSONObject;
+
 public class RegisterRequestService extends BaseRequestService {
 
     private final Handler mHandler = new Handler(Looper.getMainLooper());
@@ -12,7 +14,11 @@ public class RegisterRequestService extends BaseRequestService {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                responseCallback.onSuccess(request, new Object());
+                Object dummyResponse = new Object() {
+                    int statusCode;
+                    String rawResponse;
+                };
+                responseCallback.onSuccess(request, dummyResponse);
             }
         }, 2000);
     }
@@ -22,7 +28,11 @@ public class RegisterRequestService extends BaseRequestService {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                responseCallback.onSuccess(request, new Object());
+                Object dummyResponse = new Object() {
+                    int statusCode;
+                    String rawResponse;
+                };
+                responseCallback.onSuccess(request, dummyResponse);
             }
         }, 2000);
     }

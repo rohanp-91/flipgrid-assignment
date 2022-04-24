@@ -18,10 +18,12 @@ The app uses Android material design for the UI elements. Below is a brief descr
     * RegisterRequestService - This is an extension of the BaseRequestService class to align with the registration network requests.
     * RegistrationRepository - A class that handles the registration requests making use of the RegisterRequestService.
 
-5. Models - This contains different models for user/entity specific data and business logic
+3. Models - This contains different models for user/entity specific data and business logic
 
-3. Activities - This contains the class definitions of the various activities of the application.
+4. Activities - This contains the class definitions of the various activities of the application.
 
-4. Fragments - This contains the fragment definitions of the application that is used by the activities.
+5. Fragments - This contains the fragment definitions of the application that is used by the activities.
+
+6. Utils - Contains validators and error definitions.
 
 > A buildConfigField 'DEVELOPER_MODE' was added to enable some features that is only present in debug builds - this can be used to pilot features or test features out in debug mode without having to enable it in production.

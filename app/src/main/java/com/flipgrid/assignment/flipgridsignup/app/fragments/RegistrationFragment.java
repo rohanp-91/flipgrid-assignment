@@ -61,6 +61,10 @@ public class RegistrationFragment extends Fragment {
         preferenceWrapper.writeString(DataKey.WEBSITE.name(), getWebsite());
     }
 
+    public interface OnSubmitButtonClickListener {
+        void onSubmitButtonClicked(String firstName, String email, String website);
+    }
+
     public void setOnSubmitButtonClickListener(OnSubmitButtonClickListener listener) {
         this.onSubmitButtonClickListener = listener;
     }
@@ -238,9 +242,5 @@ public class RegistrationFragment extends Fragment {
     private void initProgressBar(View view) {
         progressBar = view.findViewById(R.id.progress_loader);
         progressBar.setVisibility(View.INVISIBLE);
-    }
-
-    public interface OnSubmitButtonClickListener {
-        void onSubmitButtonClicked(String firstName, String email, String website);
     }
 }
