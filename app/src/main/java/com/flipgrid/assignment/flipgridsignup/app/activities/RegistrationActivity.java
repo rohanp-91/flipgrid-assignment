@@ -107,6 +107,5 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
                             R.id.activity_registration_content, signinFragment, TAG_SIGNIN_FRAGMENT)
                     .commit();
         }
-
     }
 }

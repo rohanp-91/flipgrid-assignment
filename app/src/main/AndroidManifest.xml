@@ -19,8 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".app.activities.SigninActivity"
-            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>
