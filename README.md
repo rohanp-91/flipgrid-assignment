@@ -18,6 +18,8 @@ The app uses Android material design for the UI elements. Below is a brief descr
     * RegisterRequestService - This is an extension of the BaseRequestService class to align with the registration network requests.
     * RegistrationRepository - A class that handles the registration requests making use of the RegisterRequestService.
 
+5. Models - This contains different models for user/entity specific data and business logic
+
 3. Activities - This contains the class definitions of the various activities of the application.
 
 4. Fragments - This contains the fragment definitions of the application that is used by the activities.

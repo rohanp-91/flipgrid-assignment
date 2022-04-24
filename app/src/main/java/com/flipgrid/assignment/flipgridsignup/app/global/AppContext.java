@@ -9,6 +9,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.flipgrid.assignment.flipgridsignup.app.models.User;
+
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -19,6 +21,7 @@ public class AppContext extends Application implements Application.ActivityLifec
     private int activityCounter = 0;
     private Activity currentActivity;
     private String sessionId;
+    private User user;
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -102,8 +105,16 @@ public class AppContext extends Application implements Application.ActivityLifec
         return preferenceWrapper;
     }
 
+    public User getUser() {
+        return user;
+    }
+
     public String getSessionId() {
         return sessionId;
+    }
+
+    public void setUser(String firstName, String email, String website) {
+        this.user = new User(firstName, email, website);
     }
 
     private void initializeLogger() {

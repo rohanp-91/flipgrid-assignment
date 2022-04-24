@@ -78,6 +78,7 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
             @Override
             public void onSuccess(Object request, Object response) {
                 registrationFragment.hideProgressBar();
+                AppContext.getInstance(getApplicationContext()).setUser(firstName, email, website);
                 showSigninView(registrationArguments, true);
             }
 
