@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -142,7 +143,7 @@ public class AppContext extends Application implements Application.ActivityLifec
     private String getDeviceId() {
         String deviceId = preferenceWrapper.readString(DataKey.DEVICE_ID.name());
         if (deviceId == null) {
-            deviceId = UUID.randomUUID().toString();
+            deviceId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
         }
         return deviceId;
     }
