@@ -62,6 +62,7 @@
 
             <!-- First name field -->
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/first_name_input_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -84,6 +85,7 @@
 
             <!-- Email field -->
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_input_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -106,6 +108,7 @@
 
             <!-- Password field -->
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_input_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -129,6 +132,7 @@
 
             <!-- Website field -->
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/website_input_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"

@@ -12,4 +12,11 @@
     <string name="success_message">Your super-awesome portfolio has been successfully submitted! The details below will be public within your community!</string>
     <string name="greetings">Hello!</string>
     <string name="greetings_with_name">Hello, %s!</string>
+    <string name="empty_email">An email is required to register</string>
+    <string name="invalid_email">Email address is not valid</string>
+    <string name="empty_password">A password is required to register</string>
+    <string name="password_no_caps">Password must contain a capital letter</string>
+    <string name="password_no_number">Password must contain a number</string>
+    <string name="password_no_special_char">Password must contain a special character</string>
+    <string name="password_length">Password must be between 8-12 characters</string>
 </resources>
